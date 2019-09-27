@@ -1,32 +1,29 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
+import NewComment from './NewComment'
+import Comments from './Comments'
 
-import firebase from './firebase'
-
-const Comments = () => {
-  const [data, setData] = useState({})
-  useEffect(() => {
-    const ref = firebase.database().ref('test')
-    ref.on('value', snapshot => {
-      setData(snapshot.val())
-    })
-    return () => {
-      ref.off()
-    }
-  }, [])
-  return (
-    <pre>{JSON.stringify(data)}</pre>
-  )
-}
+// firebase
+//   .auth()
+//   .createUserWithEmailAndPassword('rocha.mer21@gmail.com', 'abc123')
+//   .then( user => {
+//       user.displayName = 'Marcelo Santos'
+//       firebase.auth().updateCurrentUser(user)
+//   })
+// firebase.auth().onAuthStateChanged(user => {
+//   if(user){
+//     console.log(user.displayName)
+//     user.updateProfile({ displayName: 'Marcello Santos' })
+//   }
+// })
 
 function App() {
-  const [visible, toggle] = useState(true)
   return (
     <div>
-      <button onClick={() => toggle(!visible)}>Toggle</button>
-      { visible && <Comments /> }
+      <NewComment />
+      <Comments />
     </div>
   );
 }
 
-export default App;
+export default App
