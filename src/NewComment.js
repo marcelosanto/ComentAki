@@ -26,10 +26,10 @@ const NewComment = () => {
     }
   }
   return (
-    <div>
+    <div className='p-3 ' >
       <textarea value={comment} onChange={evt => setComment(evt.target.value)} />
       <br />
-      <button onClick={createComment}>Comentar</button>
+      <button className="btn btn-primary" onClick={createComment}>Comentar</button>
     </div>
   )
 }

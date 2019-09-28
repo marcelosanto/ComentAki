@@ -5,9 +5,17 @@ import { AuthContext } from './auth'
 const Comment = ({ comment }) => {
   const auth = useContext(AuthContext)
   return (
-    <div>
-      {comment.content} por: {comment.user.name} em: <Time timestamp={comment.createdAt} />
-    </div>
+    <div class="list-group">
+    <br />
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">List group item heading</h5>
+          <small><Time timestamp={comment.createdAt} /></small>
+        </div>
+        <p class="mb-1">{comment.content}</p>
+        <small> {comment.user.name}</small>
+      </a><br />
+    </div >
   )
 }
 

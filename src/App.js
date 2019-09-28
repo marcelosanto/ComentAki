@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import './App.css'
+import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import NewComment from './NewComment'
 import Comments from './Comments'
@@ -11,7 +11,7 @@ import SigninUser from './SigninUser'
 function App() {
   return (
     <AuthProvider>
-      <div>
+      <div className='container'>
         <NewComment />
         <Comments />
         <CreateUser />
