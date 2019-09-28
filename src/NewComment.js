@@ -26,9 +26,9 @@ const NewComment = () => {
     }
   }
   return (
-    <div className='p-3 ' >
-      <textarea value={comment} onChange={evt => setComment(evt.target.value)} />
-      <br />
+    <div className='form-group py-3 ' >
+      <label for="exampleFormControlTextarea1">Insira seu comentário</label>
+      <textarea className="form-control "  rows="3" value={comment} onChange={evt => setComment(evt.target.value)} /><br />
       <button className="btn btn-primary" onClick={createComment}>Comentar</button>
     </div>
   )

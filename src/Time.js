@@ -6,7 +6,7 @@ const Time = ({ timestamp }) => {
   const day = '0' + (date.getDay() + 22)
   const month = '0' + (date.getMonth() + 1)
   const year = date.getFullYear()
-  return `${day.substr(-2)}/${month.substr(-2)}/${year} ${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`
+  return `${hours}:${minutes.substr(-2)}:${seconds.substr(-2)} em: ${day.substr(-2)}/${month.substr(-2)}/${year} `
 }
 
 export default Time
