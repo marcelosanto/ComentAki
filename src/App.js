@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import './App.css'
 
 import NewComment from './NewComment'
 import Comments from './Comments'
 import { AuthProvider } from './auth'
 import CreateUser from './CreateUser'
+import UserInfo from './UserInfo'
+import SigninUser from './SigninUser'
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <NewComment />
         <Comments />
         <CreateUser />
+        <SigninUser />
+        <UserInfo />
       </div>
     </AuthProvider>
   );
