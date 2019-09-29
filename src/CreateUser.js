@@ -12,7 +12,6 @@ const CreatUser = () => {
       [campo]: evt.target.value
     })
   }
-  if (auth.user === null) {
    return (
     <div className='container'>
       <Form className='form-inline'>
@@ -35,9 +34,7 @@ const CreatUser = () => {
       </Form.Text>
     </div>
     )
-  }
-
-  return null
+  
 }
 
 export default CreatUser

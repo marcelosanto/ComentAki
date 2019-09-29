@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { AuthContext } from './auth'
-import { Accordion, Card, Form, Alert, Button } from 'react-bootstrap'
+import { Form, Alert, Button } from 'react-bootstrap'
 
 const SigninUser = () => {
   const auth = useContext(AuthContext)
@@ -11,7 +11,6 @@ const SigninUser = () => {
       [campo]: evt.target.value
     })
   }
-  if (auth.user !== null) { return null }
   return (
     <div className='container'>
       <Form className='form-inline'>

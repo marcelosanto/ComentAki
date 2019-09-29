@@ -12,7 +12,7 @@ function App() {
     <AuthProvider>
       <div className='container'>
         <UserInfo />
-       <CriarEntrar />
+        <CriarEntrar />
         <NewComment />
         <Comments /><br />
         <p>ComentaKi 2019</p>

@@ -7,10 +7,9 @@ import SigninUser from './SigninUser'
 
 const CriarEntrar = () => {
   const auth = useContext(AuthContext)
-  if (auth.user !== null) { return null }
-
+  if (auth.user === null) { 
   return (
-    <>
+    <div>
     <Tabs defaultActiveKey="entrar" transition={false} id="uncontrolled-tab-example">
     <Tab eventKey="create" title="Criar conta"><br />
     <CreateUser />
@@ -19,8 +18,10 @@ const CriarEntrar = () => {
     <SigninUser />
     </Tab>
   </Tabs><br />
-  </>
-  )
+  </div>
+  )}
+
+  return <></>
 }
 
 export default CriarEntrar

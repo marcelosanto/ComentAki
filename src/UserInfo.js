@@ -10,14 +10,14 @@ const FormDisplayName = ({ displayName, user }) => {
   const save = () => {
     if (newDisplayName !== '') {
       user.updateProfile({ displayName: newDisplayName })
-      window.location.reload()
+      window.location.reload(false)
     }
   }
   return (
-    <>
+    <div>
       <input type='text' value={newDisplayName} onChange={onChange} />
       <button onClick={save} >Salvar</button>
-    </>
+    </div>
   )
 }
 
