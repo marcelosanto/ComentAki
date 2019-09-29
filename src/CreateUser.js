@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { AuthContext } from './auth'
-import { Accordion, Card } from 'react-bootstrap'
+import { Accordion, Card, Form, Button } from 'react-bootstrap'
 
 
 const CreatUser = () => {
@@ -25,12 +25,30 @@ const CreatUser = () => {
             Criar nova conta
     </Accordion.Toggle>
           <Accordion.Collapse eventKey="0">
-            <Card.Body><input type='text' placeholder='Seu e-mail' value={form.email} onChange={onChange('email')} />
-              <input type='password' placeholder='Sua senha' value={form.passwd} onChange={onChange('passwd')} />
-              <button
-                onClick={() =>
+            <Card.Body>
+              <Form>
+                <Form.Group controlId="formBasicEmail">
+                  <Form.Label>Email address</Form.Label>
+                  <Form.Control type='text' placeholder='Seu e-mail' value={form.email} onChange={onChange('email')} />
+                  <Form.Text className="text-muted">
+                    {
+                      auth.createUser.createUserState.error !== '' &&
+                      <p>{auth.createUser.createUserState.error}</p>
+                    }
+                  </Form.Text>
+                </Form.Group>
+
+                <Form.Group controlId="formBasicPassword">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control type='password' placeholder='Sua senha' value={form.passwd} onChange={onChange('passwd')} />
+                </Form.Group>
+                <Button variant="primary" onClick={() =>
                   auth.createUser.createUser(form.email, form.passwd)
-                }>Criar conta</button></Card.Body>
+                }>
+                  Submit
+  </Button>
+              </Form>
+            </Card.Body>
           </Accordion.Collapse>
         </Card>
       </Accordion>
