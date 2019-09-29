@@ -10,7 +10,7 @@ const FormDisplayName = ({ displayName, user }) => {
   const save = () => {
     if (newDisplayName !== '') {
       user.updateProfile({ displayName: newDisplayName })
-      window.location.reload();
+      window.location.reload()
     }
   }
   return (
@@ -26,7 +26,7 @@ const Header = ({ comment }) => {
   if (auth.user === null) {
     return (
       <Navbar bg="primary" variant="dark">
-        <Navbar.Brand href="#home">ComentAki</Navbar.Brand>
+        <Navbar.Brand href="#home">ComentaKi</Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
         </Navbar.Collapse>
       </Navbar>

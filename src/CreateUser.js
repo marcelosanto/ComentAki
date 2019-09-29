@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { AuthContext } from './auth'
-import { Accordion, Card, Form, Button, Alert, Popover, OverlayTrigger } from 'react-bootstrap'
+import { Form, Button, Alert } from 'react-bootstrap'
 
 
 const CreatUser = () => {
@@ -12,31 +12,32 @@ const CreatUser = () => {
       [campo]: evt.target.value
     })
   }
-  if (auth.user !== null) { return null }
-
-  return (
+  if (auth.user === null) {
+   return (
     <div className='container'>
       <Form className='form-inline'>
-                <Form.Group controlId="formBasicEmail">
-                  <Form.Control type='text' placeholder='Seu e-mail' value={form.email} onChange={onChange('email')} />
-                  
-                </Form.Group>&nbsp;&nbsp;
+        <Form.Group controlId="formBasicEmail">
+          <Form.Control type='text' placeholder='Seu e-mail' value={form.email} onChange={onChange('email')} />
+
+        </Form.Group>&nbsp;&nbsp;
                 <Form.Group controlId="formBasicPassword">
-                  <Form.Control type='password' placeholder='Sua senha' value={form.passwd} onChange={onChange('passwd')} />
-                </Form.Group>&nbsp;&nbsp;
+          <Form.Control type='password' placeholder='Sua senha' value={form.passwd} onChange={onChange('passwd')} />
+        </Form.Group>&nbsp;&nbsp;
                 <Button variant="primary" onClick={() =>
-                  auth.createUser.createUser(form.email, form.passwd)
-                }>Criar conta</Button>
-              </Form>
-              <Form.Text className="text-muted">
-                    {
-                      auth.createUser.createUserState.error !== '' &&
-                      <Alert variant='danger'>{auth.createUser.createUserState.error}</Alert>
-                    }
-                  </Form.Text>
-           
+          auth.createUser.createUser(form.email, form.passwd)
+        }>Criar conta</Button>
+      </Form>
+      <Form.Text className="text-muted">
+        {
+          auth.createUser.createUserState.error !== '' &&
+          <Alert variant='danger'>{auth.createUser.createUserState.error}</Alert>
+        }
+      </Form.Text>
     </div>
-  )
+    )
+  }
+
+  return null
 }
 
 export default CreatUser
