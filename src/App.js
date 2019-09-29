@@ -1,5 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Tabs, Tab } from 'react-bootstrap'
 
 
 import NewComment from './NewComment'
@@ -14,10 +15,17 @@ function App() {
     <AuthProvider>
       <div className='container'>
         <UserInfo />
-        <CreateUser />
-        <SigninUser />
+        <Tabs defaultActiveKey="entrar" transition={false} id="uncontrolled-tab-example">
+          <Tab eventKey="create" title="Criar conta"><br />
+          <CreateUser />
+          </Tab>
+          <Tab eventKey="entrar" title="Entrar"><br />
+          <SigninUser />
+          </Tab>
+        </Tabs><br />
         <NewComment />
-        <Comments />
+        <Comments /><br />
+        <p>ComentaKi 2019</p>
       </div>
     </AuthProvider>
   );

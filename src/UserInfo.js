@@ -27,6 +27,8 @@ const Header = ({ comment }) => {
     return (
       <Navbar bg="primary" variant="dark">
         <Navbar.Brand href="#home">ComentAki</Navbar.Brand>
+        <Navbar.Collapse className="justify-content-end">
+        </Navbar.Collapse>
       </Navbar>
     )
   }
@@ -51,7 +53,7 @@ const Header = ({ comment }) => {
 
   return (
     <Navbar bg="primary" variant="dark">
-      <Navbar.Brand href="#home">ComentAki</Navbar.Brand>
+      <Navbar.Brand href="#home">ComentaKi</Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse className="justify-content-end">
         <Navbar.Text>

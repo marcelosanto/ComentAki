@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { AuthContext } from './auth'
-import { Accordion, Card } from 'react-bootstrap'
+import { Accordion, Card, Form, Alert, Button } from 'react-bootstrap'
 
 const SigninUser = () => {
   const auth = useContext(AuthContext)
@@ -13,28 +13,27 @@ const SigninUser = () => {
   }
   if (auth.user !== null) { return null }
   return (
-    <>
-      {
-        auth.signInUser.signInUserState.error !== '' &&
-        <p>{auth.signInUser.signInUserState.error}</p>
-      }
-      <Accordion >
-        <Card>
-          <Accordion.Toggle as={Card.Header} eventKey="0">
-            Entrar na sua conta
-    </Accordion.Toggle>
-          <Accordion.Collapse eventKey="0">
-            <Card.Body><input type='text' placeholder='Seu e-mail' value={form.email} onChange={onChange('email')} />
-              <input type='password' placeholder='Sua senha' value={form.passwd} onChange={onChange('passwd')} />
-              <button
-                onClick={() =>
-                  auth.signInUser.signInUser(form.email, form.passwd)
-                }>Entrar</button></Card.Body>
-          </Accordion.Collapse>
-        </Card>
-      </Accordion><br />
+    <div className='container'>
+      <Form className='form-inline'>
+        <Form.Group class="form-group mb-2 p-2" controlId="formBasicEmail">
+          <Form.Control type='text' placeholder='Seu e-mail' value={form.email} onChange={onChange('email')} />
 
-    </>
+        </Form.Group>&nbsp;&nbsp;
+                <Form.Group controlId="formBasicPassword">
+          <Form.Control type='password' placeholder='Sua senha' value={form.passwd} onChange={onChange('passwd')} />
+        </Form.Group>&nbsp;&nbsp;
+                <Button variant="primary" onClick={() =>
+          auth.signInUser.signInUser(form.email, form.passwd)
+        }>Entrar</Button>
+      </Form>
+      <Form.Text className="text-muted">
+        {
+
+          auth.signInUser.signInUserState.error !== '' &&
+          <Alert variant='danger'>{auth.signInUser.signInUserState.error}</Alert>
+        }
+      </Form.Text>
+    </div>
   )
 }
 
