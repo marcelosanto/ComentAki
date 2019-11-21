@@ -14,10 +14,10 @@ const FormDisplayName = ({ displayName, user }) => {
     }
   }
   return (
-    <div>
+    <>
       <input type='text' value={newDisplayName} onChange={onChange} />
       <button onClick={save} >Salvar</button>
-    </div>
+    </>
   )
 }
 
